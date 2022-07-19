@@ -2,7 +2,11 @@ const express = require('express');
 const User = require('../models/user');
 const bcrypet = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+<<<<<<< HEAD
 const authConfig = require('../config/auth');
+=======
+const authConfig = require('../config/auth')
+>>>>>>> 4527c8a09a498f73e07f46f161a6545fe76600ad
 
 const router = express.Router();
 
@@ -22,7 +26,10 @@ router.post('/register', async (req, res) => {
         const user = await User.create(req.body);
         
         user.password = undefined;
+<<<<<<< HEAD
         
+=======
+>>>>>>> 4527c8a09a498f73e07f46f161a6545fe76600ad
         return res.send({ 
             user,
             token: generateToken({ id: user.id })
@@ -44,8 +51,13 @@ router.post('/authenticate', async(req, res) => {
         return res.status(400).send({ error: 'Invalid password'});
 
     user.password = undefined;
+<<<<<<< HEAD
     
     res.send({ 
+=======
+
+    res.send({
+>>>>>>> 4527c8a09a498f73e07f46f161a6545fe76600ad
         user,
         token: generateToken({ id: user.id })
     });
